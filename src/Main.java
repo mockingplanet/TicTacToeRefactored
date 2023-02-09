@@ -6,10 +6,14 @@ import java.util.Scanner;
  * @since Version 1.1
  */
 public class Main {
+
+    /**
+     * scanner para poder recibir los nombres
+     */
     static Scanner input = new Scanner(System.in);
 
     /**
-     * Este es el método main que imprimirá el jugador 1, 2, el que juega según el turno y el tablero
+     * Este es el método main que imprimirá el jugador 1, 2, el que juega según el turno, el tablero y el método que comprueba si ganas o no
      * @param args
      */
     public static void main(String[] args) {
@@ -22,7 +26,11 @@ public class Main {
     }
 
 
-
+    /**
+     * Este método sirve para que un jugador pueda colocar su símbolo en una área
+     * @param currentPlayer
+     * @return la posición que el jugador a decidido
+     */
     public static Shot getShot(Player currentPlayer) {
         System.out.println(currentPlayer.getName() +
                 "(" + currentPlayer.getSymbol() + ")" +
@@ -34,21 +42,45 @@ public class Main {
         return new Shot(row, col);
     }
 
+    /**
+     * Este método sirva para turnar a los jugadores y que puedan jugar cada vez uno
+     * @param current
+     * @param player1
+     * @param player2
+     * @return un jugador
+     */
     private static Player changePlayer(Player current, Player player1, Player player2) {
         return current == player1 ? player2 : player1;
     }
 
+    /**
+     * Este método sirve para decidir quien empieza primero al azar al poner los nombres de los dos jugadores
+     * @param player1
+     * @param player2
+     * @return jugador aleatorio
+     */
     private static Player getRandomPlayer(Player player1, Player player2) {
         int rand = (int)(Math.random() * 2);
         return rand == 0 ? player1 : player2;
     }
 
+    /**
+     * "Este método sirve para escribir y almacenar el nombre de los jugadores
+     * @return
+     */
     private static Player getPlayerFromKeyboard() {
         System.out.println("Enter the name of player " + (Player.getNumPlayers() == 0 ? "1" : "2"));
         String name = input.next();
         return new Player(name);
     }
 
+    /**
+     * Este es el método que sirve para comprobar si el jugador a ganado o no
+     * @param player1
+     * @param player2
+     * @param currentPlayer
+     * @param board
+     */
     private static void playGame(Player player1, Player player2, Player currentPlayer, Board board) {
         boolean gameOver = false;
         while (!gameOver) {
