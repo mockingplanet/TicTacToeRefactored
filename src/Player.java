@@ -1,3 +1,8 @@
+/**
+ * @author alu10711158
+ * @version 2.0
+ * @since Version 1.1
+ */
 public class Player {
     private String name;
     private String symbol;
@@ -30,3 +35,4 @@ public class Player {
         return numPlayers;
     }
 }
+

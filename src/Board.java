@@ -1,11 +1,22 @@
 import java.util.Objects;
 
+/**
+ * @author alu10711158
+ * @version 2.0
+ * @since Version 1.1
+ */
 public class Board {
+    /**
+     * Estas son las constantes para darle la forma a el tablero
+     */
     public static final String EMPTY = ".";
     public static final int NUM_ROWS = 3;
     public static final int NUM_COLS = 3;
     private String[][] board;
 
+    /**
+     * Este constructor inicia el tablero
+     */
     public Board() {
         board = new String[NUM_ROWS][NUM_COLS];
         for (int row = 0; row < board.length; row++) {
@@ -15,6 +26,10 @@ public class Board {
         }
     }
 
+    /**
+     * Este constructor hace que imprima el tablero
+     * @return devuelve un String s con el tablero
+     */
     @Override
     public String toString() {
         String s = "  ";
@@ -50,13 +65,32 @@ public class Board {
             }
         }
      */
+
+    /**
+     * Aqui comprobamos si el shot que lanzamos en las filas y columnases válido, es decir, si ya esta ocupado o no
+     * @param shot
+     * @return devuelve una posición válida de las filas y columnas
+     */
     public boolean isValidShot(Shot shot) {
         return shot.row >= 0 && shot.row < NUM_ROWS
                 && shot.col >= 0 && shot.col < NUM_COLS;
     }
+
+    /**
+     *
+     * @param shot
+     * @return si la posición del tablero esta vacia o no
+     */
     public boolean isPositionEmpty(Shot shot) {
         return Objects.equals(board[shot.row][shot.col], EMPTY);
     }
+
+    /**
+     *
+     * @param shot
+     * @param player
+     * @return false si el shot no coincide con el método isValidShot o la posicion ya esta ocupada y true si la posicion no esta ocupada
+     */
     public boolean correctShoot(Shot shot, Player player) {
         if (!isValidShot(shot)) {
             System.out.println("Wrong ROW or COL");
@@ -73,20 +107,22 @@ public class Board {
     }
 
 
+    /**
+     *Este método comprueba si el jugador gana o no según como haya puesto los simbolos en las casillas
+     * @return true si una columna, fila o alguna de las dos diagonales coinciden con un mismo símbolo
+     */
     public boolean wins() {
-        // Check rows
         if (checkRows()) return true;
-        // Check columns
         if (checkColumns()) return true;
-
-        // Check diagonal 1
         if (checkDiagonal1()) return true;
         String symbol;
-
-        // Check diagonal 2
         return checkDiagonal2();
     }
 
+    /**
+     *Este es el método del checkRows del método anterior
+     * @return true si una fila coincide en todos un símbolo
+     */
     private boolean checkRows() {
         for (int row = 0; row < board.length; row++) {
             String symbol = board[row][0];
@@ -106,6 +142,10 @@ public class Board {
         return false;
     }
 
+    /**
+     *Este es el método del checkColumns del método anterior
+     * @return true si una columna coincide en todos un símbolo
+     */
     private boolean checkColumns() {
         for (int col = 0; col < board[0].length; col++) {
             String symbol = board[0][col];
@@ -125,6 +165,10 @@ public class Board {
     }
 
 
+    /**
+     *Este es el método del checkDiagonal1 del método anterior
+     * @return true si diagonal izquierda coincide en todos un símbolo, si no false
+     */
     private boolean checkDiagonal1() {
         String symbol = board[0][0];
         if (!Objects.equals(symbol, EMPTY)) {
@@ -140,6 +184,11 @@ public class Board {
         }
         return false;
     }
+
+    /**
+     *
+     * @return true si la diagonal derecha coincide en todos un símbolo, si no false
+     */
     private boolean checkDiagonal2() {
         String symbol;
         symbol = board[0][NUM_COLS - 1];
@@ -159,6 +208,10 @@ public class Board {
         return false;
     }
 
+    /**
+     *
+     * @return false si no se ha producido un empate, si no true
+     */
 
     public boolean checkDraw() {
         for (int row = 0; row < board.length; row++) {

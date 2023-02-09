@@ -1,7 +1,17 @@
 import java.util.Scanner;
 
+/**
+ * @author alu10711158
+ * @version 2.0
+ * @since Version 1.1
+ */
 public class Main {
     static Scanner input = new Scanner(System.in);
+
+    /**
+     * Este es el método main que imprimirá el jugador 1, 2, el que juega según el turno y el tablero
+     * @param args
+     */
     public static void main(String[] args) {
         Player player1, player2, currentPlayer;
         Board board = new Board();
