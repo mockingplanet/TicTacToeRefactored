@@ -11,8 +11,8 @@ public class Shot {
 
     /**
      * Constructor que los inicializa
-     * @param row
-     * @param col
+     * @param row la fila
+     * @param col la columna
      */
     public Shot(int row, int col) {
         this.row = row;

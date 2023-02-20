@@ -60,7 +60,7 @@ public class Board {
 
     /**
      * Aqui comprobamos si el shot que lanzamos en las filas y columnas es válido, es decir, si ya esta ocupado o no
-     * @param shot
+     * @param shot el turno del jugador
      * @return  una posición válida de las filas y columnas
      */
     public boolean isValidShot(Shot shot) {
@@ -70,7 +70,7 @@ public class Board {
 
     /**
      *
-     * @param shot
+     * @param shot el turno del jugador
      * @return si la posición del tablero esta vacia o no
      */
     public boolean isPositionEmpty(Shot shot) {
@@ -78,9 +78,9 @@ public class Board {
     }
 
     /**
-     *
-     * @param shot
-     * @param player
+     * Comprueba si el método {@link boolean#isValidShot(Shot)} es válido o no. Si no comprueba el {@link boolean#isPositionEmpty(Shot)} , y si no devuelve falso.
+     * @param shot el turno del jugador
+     * @param player el jugador
      * @return false si el shot no coincide con el método isValidShot o la posicion ya esta ocupada y true si la posicion no esta ocupada
      */
     public boolean correctShoot(Shot shot, Player player) {

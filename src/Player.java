@@ -8,12 +8,20 @@ public class Player {
      * Estas son variables para el jugador
      */
     private String name;
+
+    /**
+     * Variable del símbolo
+     */
     private String symbol;
+
+    /**
+     * variable del nombre de jugadores
+     */
     private static int numPlayers = 0;
 
     /**
      * Inicializamos las variables en un constructor
-     * @param name
+     * @param name nombre del jugador
      */
     public Player(String name) {
         this.name = name;

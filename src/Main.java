@@ -14,7 +14,7 @@ public class Main {
 
     /**
      * Este es el método main que imprimirá el jugador 1, 2, el que juega según el turno, el tablero y el método que comprueba si ganas o no
-     * @param args
+     * @param args el argumento
      */
     public static void main(String[] args) {
         Player player1, player2, currentPlayer;
@@ -28,8 +28,8 @@ public class Main {
 
     /**
      * Este método sirve para que un jugador pueda colocar su símbolo en una área
-     * @param currentPlayer
-     * @return la posición que el jugador a decidido
+     * @param currentPlayer el jugador actual
+     * @return la posición que el jugador ha decidido
      */
     public static Shot getShot(Player currentPlayer) {
         System.out.println(currentPlayer.getName() +
@@ -44,9 +44,9 @@ public class Main {
 
     /**
      * Este método sirva para turnar a los jugadores y que puedan jugar cada vez uno
-     * @param current
-     * @param player1
-     * @param player2
+     * @param current jugador actual
+     * @param player1 jugador 1
+     * @param player2 jugador 2
      * @return un jugador
      */
     private static Player changePlayer(Player current, Player player1, Player player2) {
@@ -55,8 +55,8 @@ public class Main {
 
     /**
      * Este método sirve para decidir quien empieza primero al azar al poner los nombres de los dos jugadores
-     * @param player1
-     * @param player2
+     * @param player1 jugador 1
+     * @param player2 jugador 2
      * @return jugador aleatorio
      */
     private static Player getRandomPlayer(Player player1, Player player2) {
@@ -66,7 +66,7 @@ public class Main {
 
     /**
      * "Este método sirve para escribir y almacenar el nombre de los jugadores
-     * @return
+     * @return el nombre del jugador
      */
     private static Player getPlayerFromKeyboard() {
         System.out.println("Enter the name of player " + (Player.getNumPlayers() == 0 ? "1" : "2"));
@@ -75,11 +75,14 @@ public class Main {
     }
 
     /**
-     * Este es el método que sirve para comprobar si el jugador a ganado o no
-     * @param player1
-     * @param player2
-     * @param currentPlayer
-     * @param board
+     *<pre>{@code Este metodo  sirve para comprobar si el jugador a ganado o no
+     * }
+     *
+     *</pre>
+     * @param player1 jugador 1
+     * @param player2 jugador 2
+     * @param currentPlayer jugador actual
+     * @param board el tablero
      */
     private static void playGame(Player player1, Player player2, Player currentPlayer, Board board) {
         boolean gameOver = false;
